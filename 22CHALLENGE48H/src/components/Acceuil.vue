@@ -37,18 +37,23 @@
     </div>
     <div class="texteExpliquation">
         <h1>Nous vous présentons notre projet qui a pour but de creer un jeu ludique avec l'univers de star wars en utilisant une api (swapi). Ce projet est a été proposé dans le cadre d'un projet 48 h par l'école ynov 2022</h1>
-    </div>
+        <img src="https://static.lexpress.fr/medias_1632/w_1000,h_559,c_crop,x_0,y_0/w_1000,h_563,c_fill,g_north/v1556872960/chewbacca_835710.jpg"/>
+        </div>
 </div> 
 </template>
 
 <style scoped>
+.imageSuper{
+    grid-row: 3;
+    grid-column: 3;
+}
 .texteExpliquation{
-    grid-row: 2;
+    grid-row: 2/4;
     grid-column: 3;
     border: 3px solid #ffe919;
     color :white;
     text-align:center;
-    margin-bottom: 15%;}
+    }
 .description{
     margin: 2% 2% 2% 2%;
     color : white;
