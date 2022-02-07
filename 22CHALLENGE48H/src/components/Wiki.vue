@@ -32,6 +32,7 @@
             </article>
         </section>
     </section>
+        <p>Copyright | Nom Nom Nom Nom Nom | 2022 | Challenge 48h</p>
 </template>
 
 <style scoped>
@@ -105,7 +106,6 @@ img {
     width: 350px;
     height: auto;
 }
-
 .flou {
     filter: blur(3px);
     transition-property: -webkit-filter;
@@ -114,7 +114,10 @@ img {
 .flou:hover, .flou:focus, .flou:active {
     filter: blur(0px);
 }
-
+p {
+    color: white;
+    text-align: center;
+}
 @font-face {
     font-family:"Star Jedi Outline";
     src:url("Starjout.eot?") format("eot"),url("Starjout.woff") format("woff"),url("Starjout.ttf") format("truetype"),url("Starjout.svg#StarJediOutline") format("svg");
