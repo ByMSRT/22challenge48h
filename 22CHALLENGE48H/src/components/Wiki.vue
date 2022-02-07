@@ -1,23 +1,19 @@
-<script>
-    import API from '../api/route.js';
-    import {ref} from 'vue';
-    const result = ref('');
-    
-    async function ListPeople(){
-        result.value = await API.apiGetPeople();
-        result.value.forEach(element => {
-            console.log(element);
-        });
+<script setup>
+import API from '../api/route.js';
+import {ref} from 'vue';
 
+const listPlanets= ref([]);
 
-        // console.log(result.value);
-    }
-
-    ListPeople();
+async function callPlanets(){
+    console.log('callapi')
+    listPlanets.value = (await API.apiGetPlanets()).data.results;
+    console.log(listPlanets.value)
+}
 </script>
 
 <template>
-    
+    <input type="submit" name="submit" value="planets" v-on:click="callPlanets">
+    <article v-for="planet of listPlanets">{{ planet.name}} {{planet.diameter}}</article>
 </template>
 
 <style scoped>

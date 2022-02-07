@@ -49,8 +49,8 @@ export default{
             }
         });
     },
-    async apiGetPeople(){
-        return await api.get("https://swapi.dev/api/people",
+    async apiGetPeople(id){
+        return await api.get(`https://swapi.dev/api/people/${id}`,
         {
             headers:{
             "Content-Type": 'application/json' 
@@ -74,7 +74,7 @@ export default{
         });
     },
     async apiGetFilmsById(id){
-        return await api.get(`https://swapi.dev/api/films/${id}`,
+        return await api.get(`${id}`,
         {
             headers:{
             "Content-Type": 'application/json' 
@@ -90,7 +90,7 @@ export default{
         });
     },
     async apiGetSpeciesById(id){
-        return await api.get(`https://swapi.dev/api/species/${id}`,
+        return await api.get(`${id}`,
         {
             headers:{
             "Content-Type": 'application/json' 
