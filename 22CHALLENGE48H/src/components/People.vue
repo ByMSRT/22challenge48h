@@ -4,7 +4,7 @@ import {ref} from 'vue';
 
 const listPeoples = ref([]);
 const person = ref([]);
-let clicked = false;
+const clicked = ref(false);
 
 async function callPeople(){
     console.log('callapi')
@@ -13,7 +13,7 @@ async function callPeople(){
 }
 
 async function IsClicked(){
-    clicked =  true;
+    clicked.value = true;
     console.log(clicked);
     return await clicked;
 }
@@ -26,7 +26,7 @@ async function IsClicked(){
     <div>
         <section v-for="(people, index) of listPeoples" :key="index" id="card">
             <article v-on:click="IsClicked" class="PeopleName">{{people.name}}</article>
-            <article v-if="clicked">{{people.species}}</article>
+            <article v-if="clicked == true">{{people.species}}</article>
         </section>
     </div>
 
