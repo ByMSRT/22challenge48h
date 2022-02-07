@@ -15,10 +15,9 @@ import HelloWorld from './components/Acceuil.vue'
 
 <style>
 body{
-  background-image:url(https://tetesenlair.net/heberg_tetesenlair/PierreL/2017_11_26_ngc-457-ps-rotah-90-01.jpg);
+  background-image:url(https://ak.picdn.net/shutterstock/videos/1021959073/thumb/1.jpg?ip=x480);
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

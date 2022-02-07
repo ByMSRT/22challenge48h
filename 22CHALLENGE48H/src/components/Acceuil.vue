@@ -12,27 +12,27 @@
     <div class="presentationNous">
         <div class="description">
         <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
-        <h1>Flavio Cormerais DEV B1</h1>
+        <h1>Maitre Jedi Damien LANDOIS DEV B3</h1>
     </div>
     <div class="description">
         <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
-        <h1>Flavio Cormerais DEV B1</h1>
+        <h1>Padawan Jules OUTIN DEV B1</h1>
+    </div>
+    <div class="description">
+        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
+        <h1>Chevalier Jedi Elouan DUMONT DEV B2</h1>
+    </div>
+    <div class="description">
+        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
+        <h1>Padawan Abakar mele TIDJANI DEV B1</h1>
+    </div>
+    <div class="description">
+        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
+        <h1>Chevalier Jedi Tao BOURMAUD DEV B2</h1>
     </div>  
     <div class="description">
         <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
-        <h1>Flavio Cormerais DEV B1</h1>
-    </div>
-    <div class="description">
-        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
-        <h1>Flavio Cormerais DEV B1</h1>
-    </div>
-    <div class="description">
-        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
-        <h1>Flavio Cormerais DEV B1</h1>
-    </div>
-    <div class="description">
-        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
-        <h1>Flavio Cormerais DEV B1</h1>
+        <h1>Padawan Flavio CORMERAIS DEV B1</h1>
     </div>
     </div>
     <div class="texteExpliquation">
@@ -43,7 +43,7 @@
 
 <style scoped>
 .texteExpliquation{
-    margin: 0 10% 0 0;
+    margin: 0 5% 0 0;
     padding: 15px;
     border: 3px solid #ffe919;
 }
@@ -69,11 +69,11 @@
 	align-items: stretch;
 	align-content: stretch;
     border: 3px solid #ffe919;
-    margin: 0 10% 0 0;
+    margin: 0 5% 0 5%;
 }
 .corps
     {
-    margin: 7% 0 0 0;
+    margin: 3% 0 0 0;
 	display: flex;
 }
 .myButton {
@@ -85,7 +85,8 @@ color: rgb(0, 0, 0);
     background-color: #ffe919;
     box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
     border: 2px solid rgb(245, 255, 21); 
-    display: inline-block;}
+    display: inline-block;
+    font-family:"Bebas Neue";}
 .myButton:hover {
 background: rgb(245, 255, 21) }
 .myButton:active {
