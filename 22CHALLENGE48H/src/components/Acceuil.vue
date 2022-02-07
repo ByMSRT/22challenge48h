@@ -48,7 +48,7 @@
     border: 3px solid #ffe919;
     color :white;
     text-align:center;
-}
+    margin-bottom: 15%;}
 .description{
     margin: 2% 2% 2% 2%;
     color : white;
