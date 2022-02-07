@@ -10,9 +10,11 @@
 </nav>
     <section>
         <section class="threefirst">
-            <article class="personnages"><h1 class="texte">Personnages</h1>
+            <div class="floutage">
+                <article class="personnages"><h1 class="texte">Personnages</h1>
                 <img class="flou" src="https://img.filmsactu.net/datas/films/s/t/star-wars-episode-ix/xl/star-wars-episode-ix-5fc36a969d8ba.jpg" />
-            </article>
+                </article>
+            </div>
             <article class="planètes"><h1 class="texte">Planètes</h1>
                 <img class="flou" src="http://idata.over-blog.com/1/32/60/44/Starwars/PLANETES/TATOOINE/Tatooine-3.jpg" />
             </article>
@@ -48,10 +50,13 @@ h1 {
     color: white;
     font-family: "Bebas Neue";
     font-size: 25px;
-}
+}/*
 h1:hover, h1:active {
     color:#EBE501;
-}
+    font-size: 35px;
+    top: 20%;
+    left: 30%;
+}*/
 a {
     text-decoration: none;
     color: black;
@@ -102,13 +107,17 @@ img {
     width: 350px;
     height: auto;
 }
+/*
 .flou {
-    filter: blur(0px);
+    filter: blur(3px);
     transition-property: -webkit-filter;
     transition-duration: .5s;
 }
-.flou:hover, .flou:focus {
-    filter: blur(10px);
+.flou:hover, .flou:focus, .flou:active {
+    filter: blur(0px);
+}*/
+.floutage {
+    filter: blur(3px);
 }
 
 @font-face {
