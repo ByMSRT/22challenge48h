@@ -46,6 +46,8 @@ nav {
 }
 h1 {
     color: white;
+    font-family: "Bebas Neue";
+    font-size: 25px;
 }
 h1:hover, h1:active {
     color:#EBE501;
@@ -53,11 +55,13 @@ h1:hover, h1:active {
 a {
     text-decoration: none;
     color: black;
+    font-family: "Bebas Neue";
+    font-size: 25px;
 }
 button {
     border: 0;
     border-radius: 60px;
-    width: 100px;
+    width: 120px;
     height: 50px;
     
 }
@@ -77,8 +81,8 @@ article {
 }
 .texte {
     position: absolute;
-    top: 40%;
-    left: 40%;
+    top: 30%;
+    left: 35%;
     z-index: 999;
 }
 
@@ -106,4 +110,11 @@ img {
 .flou:hover, .flou:focus {
     filter: blur(10px);
 }
+
+@font-face {
+    font-family:"Star Jedi Outline";
+    src:url("Starjout.eot?") format("eot"),url("Starjout.woff") format("woff"),url("Starjout.ttf") format("truetype"),url("Starjout.svg#StarJediOutline") format("svg");
+    font-weight:normal;
+    font-style:normal;}
+
 </style>
