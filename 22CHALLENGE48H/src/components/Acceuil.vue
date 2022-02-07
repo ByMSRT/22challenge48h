@@ -5,7 +5,7 @@
 <template>
 <div class="navbar">
     <button class="myButton"> WIKI INFO </button>
-    <img class="bonneTaille" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" />
+    <img class="bonneTaille" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" href="" />
     <button class="myButton">JEU QUI SUIS-JE ??</button>
 </div>
 <div class="corps">
@@ -24,7 +24,7 @@
     </div>
     <div class="description">
         <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
-        <h3>Padawan Abakar mele TIDJANI DEV B1</h3>
+        <h3>Padawan Flavio CORMERAIS DEV B1</h3>
     </div>
     <div class="description">
         <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
@@ -32,7 +32,7 @@
     </div>  
     <div class="description">
         <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
-        <h3>Padawan Flavio CORMERAIS DEV B1</h3>
+        <h3>Padawan Abakar mele TIDJANI DEV B1</h3>
     </div>
     </div>
     <div class="texteExpliquation">
@@ -63,8 +63,8 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	align-items: flex-start;
-	align-content: flex-start;
+	align-items: center;
+	align-content: stretch;
 }
 .bonneTaille{
     height: 250px;
