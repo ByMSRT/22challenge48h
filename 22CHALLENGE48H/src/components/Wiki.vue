@@ -120,6 +120,27 @@ async function SpeciesList(){
     console.log(listSpecies.value);
 }
 
+
+
+    /* const regex = '^https:\/\/swapi\.dev\/api\/';
+    if(Array.isArray(element)){
+        temp = [];
+        for(let el of element){
+            console.log(index)
+            let t=await callAPI(el, index)
+                temp.push(t);
+        }
+    } else {
+        if(element.search(regex) != -1){
+            temp = await callAPI(element, index); 
+                        await console.log( await callAPI(element, index))
+        }else{
+            temp = element;
+        }     
+    } */
+
+
+
 </script>
 
 <template>
