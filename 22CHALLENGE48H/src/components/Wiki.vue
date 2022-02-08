@@ -13,6 +13,10 @@ const newListPeople = ref([]);
 const listFilms = ref([]);
 const listSpecies = ref([]);
 const newListSpecies = ref([]);
+const nameClicked = ref("");
+const clicked = ref(false);
+const categorySelect = ref("");
+const categoryClicked = ref(true);
 
 async function PlanetsList() {
   const planets = "planets";
@@ -123,48 +127,225 @@ async function SpeciesList() {
   console.log(listSpecies.value);
 }
 
-/* const regex = '^https:\/\/swapi\.dev\/api\/';
-    if(Array.isArray(element)){
-        temp = [];
-        for(let el of element){
-            console.log(index)
-            let t=await callAPI(el, index)
-                temp.push(t);
-        }
+async function IsClicked(name){
+    if(clicked.value == false){
+        clicked.value = true;
+        nameClicked.value = name;
+    } else if(clicked.value == true && nameClicked.value != name){
+        nameClicked.value = name;
     } else {
-        if(element.search(regex) != -1){
-            temp = await callAPI(element, index); 
-                        await console.log( await callAPI(element, index))
-        }else{
-            temp = element;
-        }     
-    } */
+        clicked.value = false;
+    }
+    return await clicked;
+}
+
+async function CategorySelect(category) {
+    if(categoryClicked.value == true){
+        categoryClicked.value = false;
+    } else {
+        categoryClicked.value = true;
+    }
+    categorySelect.value = category;
+    console.log(categorySelect.value);
+
+}
+
 </script>
 
 <template>
-  <input type="submit" name="submit" value="planets" v-on:click="PlanetsList" />
-  <article v-for="planet of listPlanets">{{ planet.name }}</article>
-  <input
-    type="submit"
-    name="submit"
-    value="starships"
-    v-on:click="StarshipsList"
-  />
-  <article v-for="starship of listStarships">{{ starship.name }}</article>
-  <input
-    type="submit"
-    name="submit"
-    value="vehicles"
-    v-on:click="VehiclesList"
-  />
-  <article v-for="vehicle of listVehicles">{{ vehicle.name }}</article>
-  *
-  <input type="submit" name="submit" value="people" v-on:click="PeopleList" />
-  <article v-for="people of listPeople">{{ people.name }}</article>
-  <input type="submit" name="submit" value="films" v-on:click="FilmsList" />
-  <article v-for="film of listFilms">{{ film.title }}</article>
-  <input type="submit" name="submit" value="species" v-on:click="SpeciesList" />
-  <article v-for="specie of listSpecies">{{ specie.name }}</article>
+      
+    <div id="category">
+        
+
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Personnages"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" v-on:click='PeopleList(); CategorySelect("Personnages")'><h1 class="texte">Personnages</h1>
+                <img class="flou" src="https://img.filmsactu.net/datas/films/s/t/star-wars-episode-ix/xl/star-wars-episode-ix-5fc36a969d8ba.jpg" />
+            </article>
+            <article id="cart">
+                <article v-if="!categoryClicked" class="cart" v-for="(people, index) of listPeople" :key="index" v-on:click="IsClicked(people.name)"> <h4>{{people.name}}</h4>
+                    <article v-if="clicked == true && nameClicked == people.name" v-for="(value, key) of people">
+                        {{key + " : " + value}}<br>
+                    </article>
+                </article>
+            </article>
+        </section>
+
+
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Planetes"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" name="Planetes" v-on:click='PlanetsList(); CategorySelect("Planetes")'><h1 class="texte">Planètes</h1>
+                <img class="flou" src="http://idata.over-blog.com/1/32/60/44/Starwars/PLANETES/TATOOINE/Tatooine-3.jpg" />
+            </article>
+            <article id="cart">
+                <article v-if="!categoryClicked" class="cart" v-for="(planet, index) of listPlanets" :key="index" v-on:click="IsClicked(planet.name)"> {{planet.name}}
+                    <article v-if="clicked == true && nameClicked == planet.name" v-for="(value, key) of planet">
+                        {{key + " : " + value}}<br>
+                    </article>
+                </article>
+            </article>
+        </section>
+
+
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Vehicules"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" name="Vehicules" v-on:click='VehiclesList(); CategorySelect("Vehicules")'><h1 class="texte">Véhicules</h1>
+                <img class="flou" src="https://i.pinimg.com/originals/5c/74/bd/5c74bdb7e78643598a20c01da29ab667.jpg" />
+            </article>
+            <article id="cart">
+                <article v-if="!categoryClicked" class="cart" v-for="(vehicle, index) of listVehicles" :key="index" v-on:click="IsClicked(vehicle.name)"> {{vehicle.name}}
+                    <article v-if="clicked == true && nameClicked == vehicle.name" v-for="(value, key) of vehicle">
+                        {{key + " : " + value}}<br>
+                    </article>
+                </article>
+            </article>
+        </section>
+
+        
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Films"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" name="Films" v-on:click='FilmsList(); CategorySelect("Films")'><h1 class="texte">Films</h1>
+                <img class="flou" src="https://www.numerama.com/wp-content/uploads/2019/02/star-wars-posters.jpg" />
+            </article>
+            <article id="cart">
+                <article v-if="!categoryClicked" class="cart" v-for="(film, index) of listFilms" :key="index" v-on:click="IsClicked(film.name)"> {{film.title}}
+                    <article v-if="clicked == true && nameClicked == film.name" v-for="(value, key) of film">
+                        {{key + " : " + value}}<br>
+                    </article>
+                </article>
+            </article>
+        </section>
+
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Starships"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" name="Starships" v-on:click='StarshipsList(); CategorySelect("Starships")'><h1 class="texte">Starships</h1>
+                <img class="flou" src="https://i.pinimg.com/originals/0f/ac/a7/0faca7171ba07543eaa081b6b8c13639.jpg" />
+            </article>
+            <article id="cart">
+                <article v-if="!categoryClicked" class="cart" v-for="(starship, index) of listStarships" :key="index" v-on:click="IsClicked(starship.name)"> {{starship.name}}
+                    <article v-if="clicked == true && nameClicked == starship.name" v-for="(value, key) of starship">
+                        {{key + " : " + value}}<br>
+                    </article> 
+                </article>
+            </article>
+        </section>
+
+
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Species"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" name="Species" v-on:click='SpeciesList(); CategorySelect("Species")'><h1 class="texte">Species</h1>
+                <img class="flou" src="https://static.hitek.fr/img/actualite/2016/06/07/w_sullustens.jpg" />
+            </article>
+            <article id="cart">
+                <article v-if="!categoryClicked" class="cart" v-for="(specie, index) of listSpecies" :key="index" v-on:click="IsClicked(specie.name)"> {{specie.name}}
+                    <article v-if="clicked == true && nameClicked == specie.name" v-for="(value, key) of specie">
+                        {{key + " : " + value}}<br>
+                    </article>
+                </article>
+            </article>
+        </section>
+
+        
+    </div>
+        <p>Copyright | Nom Nom Nom Nom Nom | 2022 | Challenge 48h</p>
 </template>
 
-<style scoped></style>
+<style scoped>
+nav {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+    margin-bottom: 100px;
+}
+
+#category {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.categoryimage {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.section {
+    width: 33%;
+}
+
+
+.cart {
+    background-color: white;
+    border: 8px solid yellow;
+    margin-bottom: 10px;
+    width: 10%;
+
+}
+
+#cart {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+h1 {
+    color: white;
+    font-family: "Bebas Neue";
+    font-size: 25px;
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 13%;
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: "Bebas Neue";
+    font-size: 25px;
+}
+button {
+    border: 0;
+    border-radius: 60px;
+    width: 120px;
+    height: 50px;
+    
+}
+button:hover {
+    background-color: #EBE501;
+}
+.home {
+    background-color: yellow;
+}
+.quisuisje {
+    background-color: yellow;
+}
+
+
+img {
+    width: 350px;
+    height: auto;
+}
+
+.flou {
+    filter: blur(3px);
+    transition-property: -webkit-filter;
+    transition-duration: .5s;
+    width: 100%;
+    height: 100%;
+}
+
+.flou:hover, .flou:focus, .flou:active {
+    filter: blur(0px);
+}
+
+p {
+    color: white;
+    text-align: center;
+}
+@font-face {
+    font-family:"Star Jedi Outline";
+    src:url("Starjout.eot?") format("eot"),url("Starjout.woff") format("woff"),url("Starjout.ttf") format("truetype"),url("Starjout.svg#StarJediOutline") format("svg");
+    font-weight:normal;
+    font-style:normal;}
+
+</style>
