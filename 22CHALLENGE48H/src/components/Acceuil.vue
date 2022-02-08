@@ -11,7 +11,7 @@
 <div class="corps">
     <div class="presentationNous">
         <div class="description">
-        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
+        <img class="photo" src="https://game-guide.fr/wp-content/uploads/2014/07/Yoda_SWSB.jpg"/>
         <h3>Maitre Jedi Damien LANDOIS DEV B3</h3>
     </div>
     <div class="description">
@@ -19,7 +19,7 @@
         <h3>Padawan Jules OUTIN DEV B1</h3>
     </div>
     <div class="description">
-        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
+        <img class="photo" src="https://pbs.twimg.com/profile_images/675399950881169413/97Tni-k3_400x400.png"/>
         <h3>Chevalier Jedi Elouan DUMONT DEV B2</h3>
     </div>
     <div class="description">
@@ -27,7 +27,7 @@
         <h3>Padawan Flavio CORMERAIS DEV B1</h3>
     </div>
     <div class="description">
-        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
+        <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtv1ACthDsf_4aoZ5Kekt3biEKLJcGuWS_0g&usqp=CAU"/>
         <h3>Chevalier Jedi Tao BOURMAUD DEV B2</h3>
     </div>  
     <div class="description">

@@ -15,10 +15,11 @@ const listSpecies= ref([]);
 const newListSpecies = ref([]);
 const secret = ref([]);
 const sayings = ref([]);
+var indice = ref([]);
 
 
 function randomCategory(){
-    const entier = Math.floor((Math.random() * 6) +  0);
+    const entier = 5;
     switch (entier) {
         case 0:
             PlanetsList();
@@ -41,7 +42,9 @@ function randomCategory(){
         default:
         console.log("erreur");
     }
+    
 }
+
 
 
 async function PlanetsList(){
@@ -55,6 +58,12 @@ async function PlanetsList(){
     listPlanets.value = listPlanets.value.results;
     console.log(listPlanets.value);
     secret.value = listPlanets.value[Math.floor(Math.random() * (listPlanets.value.length ))];
+    indice.value = secret.value
+    delete indice.value.name;
+    delete indice.value.url;
+    delete indice.value.created;
+    delete indice.value.edited;
+    console.log(indice.value);
 }
 async function StarshipsList(){
     listStarships.value = (await API.apiGetStarships("")).data;
@@ -67,6 +76,12 @@ async function StarshipsList(){
     listStarships.value = listStarships.value.results;
     console.log(listStarships.value);
     secret.value = listStarships.value[Math.floor(Math.random() * (listStarships.value.length ))];
+    indice.value = secret.value
+    delete indice.value.name;
+    delete indice.value.url;
+    delete indice.value.created;
+    delete indice.value.edited;
+    console.log(indice.value);
 }
 async function VehiclesList(){
     listVehicles.value = (await API.apiGetVehicles("")).data;
@@ -79,6 +94,12 @@ async function VehiclesList(){
     listVehicles.value = listVehicles.value.results;
     console.log(listVehicles.value);
     secret.value = listVehicles.value[Math.floor(Math.random() * (listVehicles.value.length))];
+    indice.value = secret.value
+    delete indice.value.name;
+    delete indice.value.url;
+    delete indice.value.created;
+    delete indice.value.edited;
+    console.log(indice.value);
 }
 async function PeopleList(){
     listPeople.value = (await API.apiGetPeople("")).data;
@@ -91,11 +112,23 @@ async function PeopleList(){
     listPeople.value = listPeople.value.results;
     console.log(listPeople.value);
     secret.value = listPeople.value[Math.floor(Math.random() * (listPeople.value.length))];
+    indice.value = secret.value
+    delete indice.value.name;
+    delete indice.value.url;
+    delete indice.value.created;
+    delete indice.value.edited;
+    console.log(indice.value);
 }
 async function FilmsList(){
     listFilms.value = (await API.apiGetFilms("")).data.results;
     console.log(listFilms.value);
     secret.value = listFilms.value[Math.floor(Math.random() * (listFilms.value.length))];
+    indice.value = secret.value
+    delete indice.value.name;
+    delete indice.value.url;
+    delete indice.value.created;
+    delete indice.value.edited;
+    console.log(indice.value);
 }
 async function SpeciesList(){
     listSpecies.value = (await API.apiGetSpecies("")).data;
@@ -109,15 +142,108 @@ async function SpeciesList(){
     listSpecies.value = listSpecies.value.results;
     console.log(listSpecies.value);
     secret.value = listSpecies.value[Math.floor(Math.random() * (listSpecies.value.length))];
+    indice.value = secret.value
+    delete indice.value.name;
+    delete indice.value.url;
+    delete indice.value.created;
+    delete indice.value.edited;
+    console.log(indice.value);
 }
 </script>
 
 <template>
     <input type="submit" name="submit" value="JOUER" v-on:click="randomCategory">
+    <h1 class="motAleatory">
     {{secret.title}}
     {{secret.name}}
+    </h1>
+<nav>
+    <button class="home"><a href="https://starwars-visualguide.com/#/">Home</a></button>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" />
+    <button class="Wiki"><a href="https://kennethscoggins.medium.com/how-to-use-the-star-wars-api-in-about-50-lines-of-php-b78b39e9eb8e">Wiki</a></button>
+    </nav>
+    <!-- Question -->
+    <form>
+        <fieldset>
+            <legend>Qui suis je ?</legend>
+            <input type="text" >
+            <p>Cette question vaut .... points</p>
+        </fieldset>
+        <input class="submit" type="submit" >
+        <p>Indice 1 :  </p>
+        <p>Indice 2 :  </p>
+        <p>Indice 3 :  </p>
+        <p>Indice 4 :  </p>
+        <p>Indice 5 :  </p>
+    </form>
 </template>
 
 <style scoped>
+.motAleatory{
+    color:red
+}
+nav {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+    margin-bottom: 50px;
+}
+button {
+    background-color: yellow;
+    border: 0;
+    border-radius: 60px;
+    width: 120px;
+    height: 50px;
+    
+}
+button:hover {
+    background-color: #EBE501;
+}
+.home {
+    background-color: yellow;
+}
+.wiki {
+    background-color: yellow;
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-family: "Bebas Neue";
+    font-size: 25px;
+}
+img {
+    width: 350px;
+    height: auto;
+}
+legend {
+    color: white;
+}
+p {
+    color: white;
+    font-size: 20px;
+}
+form {
+    margin-top: 20px;
+    padding-bottom: 50px;
+}
+input {
+    margin: 10px;
+    border: 0;
+}
+.submit {
+    background-color: yellow;
+    height: 20px;
+}
+fieldset {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: space-around;
+}
 
 </style>

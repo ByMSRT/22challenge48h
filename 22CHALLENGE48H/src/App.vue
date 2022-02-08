@@ -12,7 +12,7 @@ import Wiki from './components/QuiSuisJe.vue'
 
 <style>
 body{
-  background-color:yellow
+  background-color:black
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
