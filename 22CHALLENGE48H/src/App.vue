@@ -1,11 +1,14 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/Wiki.vue'
+import HelloWorld from './components/QuiSuisJe.vue'
 </script>
 
 <template>
   <body>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <!--<img alt="Vue logo" src="./assets/logo.png" />-->
     <HelloWorld msg="Hello Vue 3 + Vite" />
   </body>
@@ -13,7 +16,7 @@ import HelloWorld from './components/Wiki.vue'
 
 <style>
 body {
-  background-image: url(https://www.photofunky.net/output/image/a/9/d/a/a9da31/photofunky.gif);
+  background-image: url(https://ak.picdn.net/shutterstock/videos/1021959073/thumb/1.jpg?ip=x480);
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

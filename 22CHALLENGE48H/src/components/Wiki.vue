@@ -13,21 +13,22 @@
             <article><h1 class="texte">Personnages</h1>
                 <img class="flou" src="https://img.filmsactu.net/datas/films/s/t/star-wars-episode-ix/xl/star-wars-episode-ix-5fc36a969d8ba.jpg" />
             </article>
-            <article class="planètes"><h1 class="texte">Planètes</h1>
+
+            <article><h1 class="texte">Planètes</h1>
                 <img class="flou" src="http://idata.over-blog.com/1/32/60/44/Starwars/PLANETES/TATOOINE/Tatooine-3.jpg" />
             </article>
-            <article class="vehicules"><h1 class="texte">Véhicules</h1>
+            <article><h1 class="texte">Véhicules</h1>
                 <img class="flou" src="https://i.pinimg.com/originals/5c/74/bd/5c74bdb7e78643598a20c01da29ab667.jpg" />
             </article>
         </section>
         <section class="threelast">
-            <article class="films"><h1 class="texte">Films</h1>
+            <article><h1 class="texte">Films</h1>
                 <img class="flou" src="https://www.numerama.com/wp-content/uploads/2019/02/star-wars-posters.jpg" />
             </article>
-            <article class="starships"><h1 class="texte">Starships</h1>
+            <article><h1 class="texte">Starships</h1>
                 <img class="flou" src="https://i.pinimg.com/originals/0f/ac/a7/0faca7171ba07543eaa081b6b8c13639.jpg" />
             </article>
-            <article class="species"><h1 class="texte">Species</h1>
+            <article><h1 class="texte">Species</h1>
                 <img class="flou" src="https://static.hitek.fr/img/actualite/2016/06/07/w_sullustens.jpg" />
             </article>
         </section>
