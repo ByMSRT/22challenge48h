@@ -2,9 +2,7 @@
 
 flush();
 
-$commands = 'git pull';
-
-$git = shell_exec("$commands");
+shell_exec("git pull");
 
 echo 'Test pull2';
 
