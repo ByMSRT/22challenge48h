@@ -9,5 +9,5 @@ export default{
             }
         });
     }
-    Planets, Spaceships, Vehicles, People, Films and Species
+    ,Planets, Spaceships, Vehicles, People, Films, Species
 }
