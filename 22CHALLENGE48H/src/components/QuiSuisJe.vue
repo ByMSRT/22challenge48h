@@ -14,7 +14,6 @@ const listFilms= ref([]);
 const listSpecies= ref([]);
 const newListSpecies = ref([]);
 const secret = ref([]);
-const sayings = ref([]);
 var indice = ref([]);
 
 
