@@ -14,6 +14,11 @@ const listFilms= ref([]);
 const listSpecies= ref([]);
 const newListSpecies = ref([]);
 
+    function entierAleatoire(min, max)
+{
+ return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+var entier = entierAleatoire(0, listPeople.length);
 async function PlanetsList(){
     listPlanets.value = (await API.apiGetPlanets("")).data;
     while ((listPlanets.value).next!=null){
@@ -73,6 +78,7 @@ async function SpeciesList(){
     listSpecies.value = listSpecies.value.results;
     console.log(listSpecies.value);
 }
+console.log(listPeople[entier])
 </script>
 
 <template>
