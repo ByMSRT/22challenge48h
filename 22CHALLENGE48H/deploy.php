@@ -1,3 +1,2 @@
-<?php
-echo "test2";
-?>
+<?php `git pull`;
+echo "test pull";
