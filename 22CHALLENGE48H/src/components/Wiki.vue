@@ -14,17 +14,12 @@ const listFilms= ref([]);
 const listSpecies= ref([]);
 const newListSpecies = ref([]);
 
-    function entierAleatoire(min, max)
-{
- return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-var entier = entierAleatoire(0, listPeople.length);
 async function PlanetsList(){
     listPlanets.value = (await API.apiGetPlanets("")).data;
     while ((listPlanets.value).next!=null){
         const urlNextPage = ((listPlanets.value).next).substr(30);
         newListPlanets.value = (await API.apiGetPlanets(urlNextPage)).data;
-        newListPlanets.value.results.forEach((planet)=> listPlanets.value.results.push(planet))
+        newListPlanets.value.results.forEach((planet) => listPlanets.value.results.push(planet))
         listPlanets.value.next = newListPlanets.value.next;
     }
     listPlanets.value = listPlanets.value.results;
@@ -75,19 +70,19 @@ async function SpeciesList(){
         newListSpecies.value.results.forEach((specie)=> listSpecies.value.results.push(specie))
         listSpecies.value.next = newListSpecies.value.next;
     }
+    var listSpecies = listSpecies.push(listSpecies);
     listSpecies.value = listSpecies.value.results;
     console.log(listSpecies.value);
 }
-console.log(listPeople[entier])
 </script>
 
 <template>
     <input type="submit" name="submit" value="planets" v-on:click="PlanetsList">
-    <article v-for="planet of listPlanets"> {{planet.name}}</article>
+    <article v-for="planet of listPlanets"> {{planet.name}} </article>
     <input type="submit" name="submit" value="starships" v-on:click="StarshipsList">
-    <article v-for="starship of listStarships"> {{starship.name}} </article>
+    <article v-for="starship of listStarships"> {{starship.name}} {{starship.length}} </article>
     <input type="submit" name="submit" value="vehicles" v-on:click="VehiclesList">
-    <article v-for="vehicle of listVehicles"> {{vehicle.name}}</article>*
+    <article v-for="vehicle of listVehicles"> {{vehicle.name}}</article>
     <input type="submit" name="submit" value="people" v-on:click="PeopleList">
     <article v-for="people of listPeople"> {{people.name}}</article>
     <input type="submit" name="submit" value="films" v-on:click="FilmsList">
