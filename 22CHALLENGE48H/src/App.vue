@@ -8,10 +8,13 @@ import People from './components/People.vue';
 <template>
   <h1>Welcome in this web app Star wars</h1>
   <p>Let the strength be with you</p>
-  <People></People>
+  <Wiki></Wiki>
 </template>
 
 <style>
+body {
+  background-image: url(https://www.photofunky.net/output/image/a/9/d/a/a9da31/photofunky.gif);
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
