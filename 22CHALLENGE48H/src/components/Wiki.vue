@@ -15,6 +15,7 @@ const listSpecies= ref([]);
 const newListSpecies = ref([]);
 const nameClicked = ref("");
 const clicked = ref(false);
+const categorySelect = ref("");
 
 async function PlanetsList(){
     listPlanets.value = (await API.apiGetPlanets("")).data;

@@ -14,10 +14,12 @@ async function callPeople(){
 }
 
 async function IsClicked(name){
-    if(peoplename.value == name){
+    if(peoplename.value == name && clicked.value == true){
         clicked.value = false;
-    } else {
+    } else if(peoplename.value == name && clicked.value == false) {
         clicked.value = true;
+        
+    }else{
         peoplename.value = name;
     }
     console.log(clicked);
@@ -32,7 +34,7 @@ async function IsClicked(name){
     <div>
         <section v-for="(people, index) of listPeoples" :key="index" id="card">
             <article v-on:click="IsClicked(people.name)" class="PeopleName">{{people.name}}</article>
-            <article v-if="clicked == true && peoplename == people.name">{{people.species}}</article>
+            <article v-if="clicked == true && peoplename == people.name">He is {{people.height}}cm tall and weighs {{people.mass}}Kg. He is {{people.hair_color}} with {{people.eye_color}} eyes and has a {{people.skin_color}} skin.</article>
         </section>
     </div>
 
