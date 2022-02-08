@@ -4,7 +4,7 @@ flush();
 
 $commands = 'git pull';
 
-$git = shell_exec("$commands 2>1&");
+$git = shell_exec("$commands");
 
 echo 'Test pull3'
 
