@@ -5,10 +5,15 @@ import Wiki from './components/QuiSuisJe.vue'
 </script>
 
 <template>
+<body>
   <Wiki></Wiki>
+</body>
 </template>
 
 <style>
+body{
+  background-color:yellow
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -15,31 +15,33 @@ const listSpecies= ref([]);
 const newListSpecies = ref([]);
 const secret = ref([]);
 const sayings = ref([]);
-const entier = 4;
 
-switch (entier) {
-    case 0:
-        PlanetsList;
-        break;
-    case 1:
-        StarshipsList;
-        break;
-    case 2:
-        VehiclesList;
-        break;
-    case 3: 
-        PeopleList;
-        break;
-    case 4:
-        FilmsList;
-        break;
-    case 5:
-        SpeciesList;
-        break;
-    default:
-    console.log("erreur");
+
+function randomCategory(){
+    const entier = Math.floor((Math.random() * 6) +  0);
+    switch (entier) {
+        case 0:
+            PlanetsList();
+            break;
+        case 1:
+            StarshipsList();
+            break;
+        case 2:
+            VehiclesList();
+            break;
+        case 3: 
+            PeopleList();
+            break;
+        case 4:
+            FilmsList();
+            break;
+        case 5:
+            SpeciesList();
+            break;
+        default:
+        console.log("erreur");
+    }
 }
-
 
 
 async function PlanetsList(){
@@ -52,7 +54,7 @@ async function PlanetsList(){
     }
     listPlanets.value = listPlanets.value.results;
     console.log(listPlanets.value);
-    secret.value = listPlanets.value[Math.floor(Math.random() * (listPlanets.value.length + 1))];
+    secret.value = listPlanets.value[Math.floor(Math.random() * (listPlanets.value.length ))];
 }
 async function StarshipsList(){
     listStarships.value = (await API.apiGetStarships("")).data;
@@ -64,7 +66,7 @@ async function StarshipsList(){
     }
     listStarships.value = listStarships.value.results;
     console.log(listStarships.value);
-    secret.value = listStarships.value[Math.floor(Math.random() * (listStarships.value.length + 1))];
+    secret.value = listStarships.value[Math.floor(Math.random() * (listStarships.value.length ))];
 }
 async function VehiclesList(){
     listVehicles.value = (await API.apiGetVehicles("")).data;
@@ -76,7 +78,7 @@ async function VehiclesList(){
     }
     listVehicles.value = listVehicles.value.results;
     console.log(listVehicles.value);
-    secret.value = listVehicles.value[Math.floor(Math.random() * (listVehicles.value.length + 1))];
+    secret.value = listVehicles.value[Math.floor(Math.random() * (listVehicles.value.length))];
 }
 async function PeopleList(){
     listPeople.value = (await API.apiGetPeople("")).data;
@@ -88,12 +90,12 @@ async function PeopleList(){
     }
     listPeople.value = listPeople.value.results;
     console.log(listPeople.value);
-    secret.value = listPeople.value[Math.floor(Math.random() * (listPeople.value.length + 1))];
+    secret.value = listPeople.value[Math.floor(Math.random() * (listPeople.value.length))];
 }
 async function FilmsList(){
     listFilms.value = (await API.apiGetFilms("")).data.results;
     console.log(listFilms.value);
-    secret.value = listFilms.value[Math.floor(Math.random() * (listFilms.value.length + 1))];
+    secret.value = listFilms.value[Math.floor(Math.random() * (listFilms.value.length))];
 }
 async function SpeciesList(){
     listSpecies.value = (await API.apiGetSpecies("")).data;
@@ -106,12 +108,12 @@ async function SpeciesList(){
     var listSpecies = listSpecies.push(listSpecies);
     listSpecies.value = listSpecies.value.results;
     console.log(listSpecies.value);
-    secret.value = listSpecies.value[Math.floor(Math.random() * (listSpecies.value.length + 1))];
+    secret.value = listSpecies.value[Math.floor(Math.random() * (listSpecies.value.length))];
 }
 </script>
 
 <template>
-    <input type="submit" name="submit" value="JOUER" v-on:click="PlanetsList">
+    <input type="submit" name="submit" value="JOUER" v-on:click="randomCategory">
     {{secret.title}}
     {{secret.name}}
 </template>
