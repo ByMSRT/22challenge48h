@@ -109,8 +109,10 @@ async function CategorySelect() {
             <article class="categoryimage" v-on:click="PeopleList"><h1 class="texte">Personnages</h1>
                 <img class="flou" src="https://img.filmsactu.net/datas/films/s/t/star-wars-episode-ix/xl/star-wars-episode-ix-5fc36a969d8ba.jpg" />
             </article>
-            <article v-for="(people, index) of listPeople" :key="index" v-on:click="IsClicked(people.name)"> {{people.name}}
-                <article v-if="clicked == true && nameClicked == people.name">He is {{people.height}}cm tall and weighs {{people.mass}}Kg. He is {{people.hair_color}} with {{people.eye_color}} eyes and has a {{people.skin_color}} skin.</article>
+            <article id="cart">
+                <article class="cart" v-for="(people, index) of listPeople" :key="index" v-on:click="IsClicked(people.name)"> {{people.name}}
+                    <article v-if="clicked == true && nameClicked == people.name">He is {{people.height}}cm tall and weighs {{people.mass}}Kg. He is {{people.hair_color}} with {{people.eye_color}} eyes and has a {{people.skin_color}} skin.</article>
+                </article>
             </article>   
         </section>
 
@@ -185,11 +187,23 @@ nav {
     justify-content: space-between;
 }
 
-
 section {
     width: 33%;
 }
 
+.cart {
+    background-color: white;
+    border: 8px solid yellow;
+    margin-bottom: 10px;
+    width: 10%;
+}
+
+#cart {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
 
 h1 {
     color: white;
@@ -224,23 +238,13 @@ button:hover {
     background-color: yellow;
 }
 
-.threefirst, .threelast {
-    display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
-	align-content: stretch;
-}
-.threelast {
-    margin-top: 50px;
-    margin-bottom: 100px;
-}
+
 img {
     width: 350px;
     height: auto;
     position: relative;
 }
+
 .flou {
     filter: blur(3px);
     transition-property: -webkit-filter;
@@ -248,9 +252,11 @@ img {
     width: 100%;
     height: 100%;
 }
+
 .flou:hover, .flou:focus, .flou:active {
     filter: blur(0px);
 }
+
 p {
     color: white;
     text-align: center;
