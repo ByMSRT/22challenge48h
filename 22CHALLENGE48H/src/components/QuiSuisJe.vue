@@ -3,33 +3,24 @@
 </script>
 
 <template>
-    <nav>
+<nav>
     <button class="home"><a href="https://starwars-visualguide.com/#/">Home</a></button>
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" />
     <button class="Wiki"><a href="https://kennethscoggins.medium.com/how-to-use-the-star-wars-api-in-about-50-lines-of-php-b78b39e9eb8e">Wiki</a></button>
 </nav>
-<!--Première question -->
+<!-- Question -->
 <form>
     <fieldset>
-    <legend>Quel est le personnage mesure .......... ?</legend>
-
-    <p><label><input type="checkbox" name="vehicle" value="Darkvador">Dark Vador</label></p>
-    <p><label><input type="checkbox" name="vehicle" value="c3po">C3-PO</label></p>
-    <p><label><input type="checkbox" name="vehicle" value="bb8">BB-8</label></p>
-    <p><label><input type="checkbox" name="vehicle" value="r2d2">R2-D2</label></p>
-  </fieldset>
-
-</form>
-<!-- Deuxième question -->
-<form>
-    <fieldset>
-    <legend>Quel est le vaisseau mythique ......... ?</legend>
-
-    <p><label><input type="checkbox" name="vehicle" value="Bike">Milinium Facon</label></p>
-    <p><label><input type="checkbox" name="vehicle" value="Car">X-Win</label></p>
-  </fieldset>
-
-  <p><button>Envoyer</button></p>
+        <legend>Qui suis je ?</legend>
+        <input type="text" >
+        <p>Cette question vaut .... points</p>
+    </fieldset>
+    <input class="submit" type="submit" >
+    <p>Indice 1 :  </p>
+    <p>Indice 2 :  </p>
+    <p>Indice 3 :  </p>
+    <p>Indice 4 :  </p>
+    <p>Indice 5 :  </p>
 </form>
 </template>
 
@@ -44,6 +35,7 @@ nav {
     margin-bottom: 50px;
 }
 button {
+    background-color: yellow;
     border: 0;
     border-radius: 60px;
     width: 120px;
@@ -74,8 +66,27 @@ legend {
 }
 p {
     color: white;
+    font-size: 20px;
 }
 form {
     margin-top: 20px;
+    padding-bottom: 50px;
 }
+input {
+    margin: 10px;
+    border: 0;
+}
+.submit {
+    background-color: yellow;
+    height: 20px;
+}
+fieldset {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: space-around;
+}
+
 </style>

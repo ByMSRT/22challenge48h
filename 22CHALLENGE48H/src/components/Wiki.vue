@@ -96,111 +96,77 @@ async function CategorySelect() {
 </script>
 
 <template>
-    <input type="submit" name="submit" value="planets" v-on:click="PlanetsList">
-    <article v-for="(planet, index) of listPlanets" :key="index" v-on:click="IsClicked(planet.name)"> {{planet.name}}
-        <article v-if="clicked == true && nameClicked == planet.name">test</article>
-    </article>
-    
-
-    <input type="submit" name="submit" value="starships" v-on:click="StarshipsList">
-    <article v-for="(starship, index) of listStarships" :key="index" v-on:click="IsClicked(starship.name)"> {{starship.name}}
-        <article v-if="clicked == true && nameClicked == starship.name">yo</article> 
-    </article>
-    
-
-    <input type="submit" name="submit" value="vehicles" v-on:click="VehiclesList">
-    <article v-for="(vehicle, index) of listVehicles" :key="index" v-on:click="IsClicked(vehicle.name)"> {{vehicle.name}}
-        <article v-if="clicked == true && nameClicked == vehicle.name">retest</article>
-    </article>
-    
-
-    <input type="submit" name="submit" value="people" v-on:click="PeopleList">
-    <article v-for="(people, index) of listPeople" :key="index" v-on:click="IsClicked(people.name)"> {{people.name}}
-        <article v-if="clicked == true && nameClicked == people.name">He is {{people.height}}cm tall and weighs {{people.mass}}Kg. He is {{people.hair_color}} with {{people.eye_color}} eyes and has a {{people.skin_color}} skin.</article>
-    </article>
-    
-
-    <input type="submit" name="submit" value="films" v-on:click="FilmsList">
-    <article v-for="(film, index) of listFilms" :key="index" v-on:click="IsClicked(film.name)"> {{film.title}}
-        <article v-if="clicked == true && nameClicked == film.name">sheesh</article>
-    </article>
-    
-
-    <input type="submit" name="submit" value="species" v-on:click="SpeciesList">
-    <article v-for="(specie, index) of listSpecies" :key="index" v-on:click="IsClicked(specie.name)"> {{specie.name}}
-        <article v-if="clicked == true && nameClicked == specie.name">le boss</article>
-    </article>
-    
+      
 
 <nav>
     <button class="home"><a href="https://starwars-visualguide.com/#/">Home</a></button>
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" />
     <button class="quisuisje"><a href="https://kennethscoggins.medium.com/how-to-use-the-star-wars-api-in-about-50-lines-of-php-b78b39e9eb8e">Qui suis-je ?</a></button>
 </nav>
-    <section>
-        <section class="threefirst">
+    <div id="category">
+        
 
-            <section>
-                <article v-on:click="PeopleList"><h1 class="texte">Personnages</h1>
-                    <img class="flou" src="https://img.filmsactu.net/datas/films/s/t/star-wars-episode-ix/xl/star-wars-episode-ix-5fc36a969d8ba.jpg" />
-                </article>
-                <article v-for="(people, index) of listPeople" :key="index" v-on:click="IsClicked(people.name)"> {{people.name}}
+        <section>
+            <article class="categoryimage" v-on:click="PeopleList"><h1 class="texte">Personnages</h1>
+                <img class="flou" src="https://img.filmsactu.net/datas/films/s/t/star-wars-episode-ix/xl/star-wars-episode-ix-5fc36a969d8ba.jpg" />
+            </article>
+            <article id="cart">
+                <article class="cart" v-for="(people, index) of listPeople" :key="index" v-on:click="IsClicked(people.name)"> {{people.name}}
                     <article v-if="clicked == true && nameClicked == people.name">He is {{people.height}}cm tall and weighs {{people.mass}}Kg. He is {{people.hair_color}} with {{people.eye_color}} eyes and has a {{people.skin_color}} skin.</article>
                 </article>
-                
-            </section>
+            </article>   
+        </section>
 
 
 
 
-
-            <article class="planètes"><h1 class="texte">Planètes</h1>
+        <section>
+            <article class="categoryimage"><h1 class="texte">Planètes</h1>
                 <img class="flou" src="http://idata.over-blog.com/1/32/60/44/Starwars/PLANETES/TATOOINE/Tatooine-3.jpg" />
             </article>
             <article v-for="(planet, index) of listPlanets" :key="index" v-on:click="IsClicked(planet.name)"> {{planet.name}}
                 <article v-if="clicked == true && nameClicked == planet.name">test</article>
             </article>
-
-
-            <article class="vehicules"><h1 class="texte">Véhicules</h1>
+        </section>
+        <section>
+            <article class="categoryimage"><h1 class="texte">Véhicules</h1>
                 <img class="flou" src="https://i.pinimg.com/originals/5c/74/bd/5c74bdb7e78643598a20c01da29ab667.jpg" />
             </article>
 
             <article v-for="(vehicle, index) of listVehicles" :key="index" v-on:click="IsClicked(vehicle.name)"> {{vehicle.name}}
                 <article v-if="clicked == true && nameClicked == vehicle.name">retest</article>
             </article>
-
-
         </section>
-        <section class="threelast">
 
-            <article class="films"><h1 class="texte">Films</h1>
+        
+        <section>
+            <article class="categoryimage"><h1 class="texte">Films</h1>
                 <img class="flou" src="https://www.numerama.com/wp-content/uploads/2019/02/star-wars-posters.jpg" />
             </article>
             <article v-for="(film, index) of listFilms" :key="index" v-on:click="IsClicked(film.name)"> {{film.title}}
                 <article v-if="clicked == true && nameClicked == film.name">sheesh</article>
             </article>
+        </section>
 
-
-
-            <article class="starships"><h1 class="texte">Starships</h1>
+        <section>
+            <article class="categoryimage"><h1 class="texte">Starships</h1>
                 <img class="flou" src="https://i.pinimg.com/originals/0f/ac/a7/0faca7171ba07543eaa081b6b8c13639.jpg" />
             </article>
             <article v-for="(starship, index) of listStarships" :key="index" v-on:click="IsClicked(starship.name)"> {{starship.name}}
                 <article v-if="clicked == true && nameClicked == starship.name">yo</article> 
             </article>
-
-
-            <article class="species"><h1 class="texte">Species</h1>
+        </section>
+        <section>
+            <article class="categoryimage"><h1 class="texte">Species</h1>
                 <img class="flou" src="https://static.hitek.fr/img/actualite/2016/06/07/w_sullustens.jpg" />
             </article>
             <article v-for="(specie, index) of listSpecies" :key="index" v-on:click="IsClicked(specie.name)"> {{specie.name}}
                 <article v-if="clicked == true && nameClicked == specie.name">le boss</article>
             </article>
-
-
         </section>
-    </section>
+
+        
+    </div>
         <p>Copyright | Nom Nom Nom Nom Nom | 2022 | Challenge 48h</p>
 </template>
 
@@ -214,17 +180,42 @@ nav {
 	align-content: stretch;
     margin-bottom: 100px;
 }
+
+#category {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+section {
+    width: 33%;
+}
+
+.cart {
+    background-color: white;
+    border: 8px solid yellow;
+    margin-bottom: 10px;
+    width: 10%;
+}
+
+#cart {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 h1 {
     color: white;
     font-family: "Bebas Neue";
     font-size: 25px;
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 13%;
+    z-index: 1;
 }
-h1:hover {
-    color:#EBE501;
-    font-size: 35px;
-    top: 20%;
-    left: 30%;
-}
+
 a {
     text-decoration: none;
     color: black;
@@ -247,42 +238,26 @@ button:hover {
 .quisuisje {
     background-color: yellow;
 }
-article {
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-}
-.texte {
-    position: absolute;
-    top: 30%;
-    left: 35%;
-    z-index: 999;
-}
 
-.threefirst, .threelast {
-    display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
-	align-content: stretch;
-}
-.threelast {
-    margin-top: 50px;
-    margin-bottom: 100px;
-}
+
 img {
     width: 350px;
     height: auto;
+    position: relative;
 }
+
 .flou {
     filter: blur(3px);
     transition-property: -webkit-filter;
     transition-duration: .5s;
+    width: 100%;
+    height: 100%;
 }
+
 .flou:hover, .flou:focus, .flou:active {
     filter: blur(0px);
 }
+
 p {
     color: white;
     text-align: center;

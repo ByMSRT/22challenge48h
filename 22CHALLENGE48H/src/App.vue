@@ -1,24 +1,27 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import Wiki from './components/Wiki.vue';
-import People from './components/People.vue';
+import HelloWorld from './components/QuiSuisJe.vue'
 </script>
 
 <template>
-  <h1>Welcome in this web app Star wars</h1>
-  <p>Let the strength be with you</p>
-  <Wiki></Wiki>
+  <body>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!--<img alt="Vue logo" src="./assets/logo.png" />-->
+    <HelloWorld msg="Hello Vue 3 + Vite" />
+  </body>
 </template>
 
 <style>
 body {
-  background-image: url(https://www.photofunky.net/output/image/a/9/d/a/a9da31/photofunky.gif);
+  background-image: url(https://ak.picdn.net/shutterstock/videos/1021959073/thumb/1.jpg?ip=x480);
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; 
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
