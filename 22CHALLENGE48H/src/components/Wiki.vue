@@ -120,18 +120,12 @@ async function CategorySelect(category) {
                 <img class="flou" src="https://img.filmsactu.net/datas/films/s/t/star-wars-episode-ix/xl/star-wars-episode-ix-5fc36a969d8ba.jpg" />
             </article>
             <article id="cart">
-                <article class="cart" v-for="(people, index) of listPeople" :key="index" v-on:click="IsClicked(people.name)"> <h4>{{people.name}}</h4>
-                    <article v-if="clicked == true && nameClicked == people.name">
-                        Gender : {{people.gender}} <br> Birth Year : {{people.birth_year}} <br>
-                        Height : {{people.height}} <br> Mass : {{people.mass}} <br>
-                        Hair : {{people.hair_color}} <br> Skin color : {{people.skin_color}} <br>
-                        Eyes : {{people.eye_color}} <br> Homeworld : {{people.homeworld}} <br>
-                        Species : {{people.species}} <br> Starships : {{people.starships}} <br>
-                        Created on {{((people.created).split('T'))[0]}} <br> Edited on {{((people.edited).split('T'))[0]}} <br>
-                        Movies : {{people.films}}
+                <article v-if="!categoryClicked" class="cart" v-for="(people, index) of listPeople" :key="index" v-on:click="IsClicked(people.name)"> <h4>{{people.name}}</h4>
+                    <article v-if="clicked == true && nameClicked == people.name" v-for="(value, key) of people">
+                        {{key + " : " + value}}<br>
                     </article>
                 </article>
-            </article>   
+            </article>
         </section>
 
 
@@ -140,8 +134,10 @@ async function CategorySelect(category) {
                 <img class="flou" src="http://idata.over-blog.com/1/32/60/44/Starwars/PLANETES/TATOOINE/Tatooine-3.jpg" />
             </article>
             <article id="cart">
-                <article class="cart" v-for="(planet, index) of listPlanets" :key="index" v-on:click="IsClicked(planet.name)"> {{planet.name}}
-                    <article v-if="clicked == true && nameClicked == planet.name">test</article>
+                <article v-if="!categoryClicked" class="cart" v-for="(planet, index) of listPlanets" :key="index" v-on:click="IsClicked(planet.name)"> {{planet.name}}
+                    <article v-if="clicked == true && nameClicked == planet.name" v-for="(value, key) of planet">
+                        {{key + " : " + value}}<br>
+                    </article>
                 </article>
             </article>
         </section>
@@ -152,8 +148,10 @@ async function CategorySelect(category) {
                 <img class="flou" src="https://i.pinimg.com/originals/5c/74/bd/5c74bdb7e78643598a20c01da29ab667.jpg" />
             </article>
             <article id="cart">
-                <article class="cart" v-for="(vehicle, index) of listVehicles" :key="index" v-on:click="IsClicked(vehicle.name)"> {{vehicle.name}}
-                    <article v-if="clicked == true && nameClicked == vehicle.name">retest</article>
+                <article v-if="!categoryClicked" class="cart" v-for="(vehicle, index) of listVehicles" :key="index" v-on:click="IsClicked(vehicle.name)"> {{vehicle.name}}
+                    <article v-if="clicked == true && nameClicked == vehicle.name" v-for="(value, key) of vehicle">
+                        {{key + " : " + value}}<br>
+                    </article>
                 </article>
             </article>
         </section>
@@ -164,8 +162,10 @@ async function CategorySelect(category) {
                 <img class="flou" src="https://www.numerama.com/wp-content/uploads/2019/02/star-wars-posters.jpg" />
             </article>
             <article id="cart">
-                <article class="cart" v-for="(film, index) of listFilms" :key="index" v-on:click="IsClicked(film.name)"> {{film.title}}
-                    <article v-if="clicked == true && nameClicked == film.name">sheesh</article>
+                <article v-if="!categoryClicked" class="cart" v-for="(film, index) of listFilms" :key="index" v-on:click="IsClicked(film.name)"> {{film.title}}
+                    <article v-if="clicked == true && nameClicked == film.name" v-for="(value, key) of film">
+                        {{key + " : " + value}}<br>
+                    </article>
                 </article>
             </article>
         </section>
@@ -175,8 +175,10 @@ async function CategorySelect(category) {
                 <img class="flou" src="https://i.pinimg.com/originals/0f/ac/a7/0faca7171ba07543eaa081b6b8c13639.jpg" />
             </article>
             <article id="cart">
-                <article class="cart" v-for="(starship, index) of listStarships" :key="index" v-on:click="IsClicked(starship.name)"> {{starship.name}}
-                    <article v-if="clicked == true && nameClicked == starship.name">yo</article> 
+                <article v-if="!categoryClicked" class="cart" v-for="(starship, index) of listStarships" :key="index" v-on:click="IsClicked(starship.name)"> {{starship.name}}
+                    <article v-if="clicked == true && nameClicked == starship.name" v-for="(value, key) of starship">
+                        {{key + " : " + value}}<br>
+                    </article> 
                 </article>
             </article>
         </section>
@@ -187,8 +189,10 @@ async function CategorySelect(category) {
                 <img class="flou" src="https://static.hitek.fr/img/actualite/2016/06/07/w_sullustens.jpg" />
             </article>
             <article id="cart">
-                <article class="cart" v-for="(specie, index) of listSpecies" :key="index" v-on:click="IsClicked(specie.name)"> {{specie.name}}
-                    <article v-if="clicked == true && nameClicked == specie.name">le boss</article>
+                <article v-if="!categoryClicked" class="cart" v-for="(specie, index) of listSpecies" :key="index" v-on:click="IsClicked(specie.name)"> {{specie.name}}
+                    <article v-if="clicked == true && nameClicked == specie.name" v-for="(value, key) of specie">
+                        {{key + " : " + value}}<br>
+                    </article>
                 </article>
             </article>
         </section>
@@ -225,11 +229,13 @@ nav {
     width: 33%;
 }
 
+
 .cart {
     background-color: white;
     border: 8px solid yellow;
     margin-bottom: 10px;
     width: 10%;
+
 }
 
 #cart {
