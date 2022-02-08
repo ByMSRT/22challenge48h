@@ -193,7 +193,8 @@ section {
 
 .cart {
     background-color: white;
-    border: 8px solid yellow;
+    border: 0;
+    border-radius: 40px;
     margin-bottom: 10px;
     width: 10%;
 }
