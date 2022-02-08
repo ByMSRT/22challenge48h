@@ -3,11 +3,11 @@
 </script>
 
 <template>
-<div class="navbar">
-    <button class="myButton"> WIKI INFO </button>
-    <img class="bonneTaille" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" href="" />
-    <button class="myButton">JEU QUI SUIS-JE ??</button>
-</div>
+<nav>
+    <button class="home"><a href="https://starwars-visualguide.com/#/">Home</a></button>
+    <img class ="bonneTaille" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" />
+    <button class="quisuisje"><a href="https://kennethscoggins.medium.com/how-to-use-the-star-wars-api-in-about-50-lines-of-php-b78b39e9eb8e">Qui suis-je ?</a></button>
+</nav>
 <div class="corps">
     <div class="presentationNous">
         <div class="description">
@@ -15,7 +15,7 @@
         <h3>Maitre Jedi Damien LANDOIS DEV B3</h3>
     </div>
     <div class="description">
-        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
+        <img class="photo" src="https://static.wikia.nocookie.net/star-wars-delta-squad/images/1/11/553937c2c6e70bb9e889abbbb787620248e6ad49_hq.jpg"/>
         <h3>Padawan Jules OUTIN DEV B1</h3>
     </div>
     <div class="description">
@@ -23,15 +23,15 @@
         <h3>Chevalier Jedi Elouan DUMONT DEV B2</h3>
     </div>
     <div class="description">
-        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
+        <img class="photo" src="https://img.wattpad.com/cover/39403490-352-k167222.jpg"/>
         <h3>Padawan Flavio CORMERAIS DEV B1</h3>
     </div>
     <div class="description">
-        <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtv1ACthDsf_4aoZ5Kekt3biEKLJcGuWS_0g&usqp=CAU"/>
+        <img class="photo" src="http://static1.webedia.fr/game/5/46/45/@/prfl-59c3e0237f4bb-0x200-1.jpg"/>
         <h3>Chevalier Jedi Tao BOURMAUD DEV B2</h3>
     </div>  
     <div class="description">
-        <img class="photo" src="https://static.vecteezy.com/ti/vecteur-libre/p1/1840612-image-profil-icon-male-icon-human-or-people-sign-and-symbol-vector-gratuit-vectoriel.jpg"/>
+        <img class="photo" src="https://static.wikia.nocookie.net/starwars/images/1/11/Rey_TLJ.png"/>
         <h3>Padawan Abakar mele TIDJANI DEV B1</h3>
     </div>
     </div>
@@ -58,16 +58,23 @@
     margin: 2% 2% 2% 2%;
     color : white;
 }
-.navbar{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
-	align-content: stretch;
+a {
+    text-decoration: none;
+    color: black;
+    font-family: "Bebas Neue";
+    font-size: 35px;
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+    margin-bottom: 100px;
 }
 .bonneTaille{
-    height: 250px;
+    height: 350px;
     width: auto;
 }
 .presentationNous{
@@ -89,24 +96,18 @@
     grid-gap: 10px;
 
 }
-.myButton {
-color: rgb(0, 0, 0);
-    font-size: 29px;
-    line-height: 29px;
-    padding: 20px;
-    border-radius: 27px;
-    background-color: #ffe919;
-    box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
-    border: 2px solid rgb(245, 255, 21); 
-    display: inline-block;
-    font-family:"Bebas Neue"
-    }
-.myButton:hover {
-background: rgb(245, 255, 21) }
-.myButton:active {
-background:rgb(200, 207, 63) 
+
+button {
+    border: 0;
+    border-radius: 60px;
+    width: 200px;
+    height: 80px;
+    background-color: yellow;
 }
 
+button:hover {
+    background-color: #EBE501;
+}
 .photo{
     height: 200px;
     width: auto;
