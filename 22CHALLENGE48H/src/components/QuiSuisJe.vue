@@ -12,6 +12,7 @@
     <button class="Wiki"><a href="https://kennethscoggins.medium.com/how-to-use-the-star-wars-api-in-about-50-lines-of-php-b78b39e9eb8e">Wiki</a></button>
 
 </nav>
+ 
 </template>
 
 <style scoped>
