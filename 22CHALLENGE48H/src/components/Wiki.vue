@@ -1,82 +1,130 @@
 <script setup>
-import API from '../api/route.js';
-import {ref} from 'vue';
-
-const listPlanets= ref([]);
+import API from "../api/route.js";
+import { ref } from "vue";
+/*object.enties transform en tableau*/
+const listPlanets = ref([]);
 const newListPlanets = ref([]);
-const listStarships= ref([]);
+const listStarships = ref([]);
 const newListStarships = ref([]);
-const listVehicles= ref([]);
+const listVehicles = ref([]);
 const newListVehicles = ref([]);
-const listPeople= ref([]);
+const listPeople = ref([]);
 const newListPeople = ref([]);
-const listFilms= ref([]);
-const listSpecies= ref([]);
+const listFilms = ref([]);
+const listSpecies = ref([]);
 const newListSpecies = ref([]);
 const nameClicked = ref("");
 const clicked = ref(false);
 const categorySelect = ref("");
 const categoryClicked = ref(true);
 
-async function PlanetsList(){
+async function PlanetsList() {
+  const planets = "planets";
+  if (sessionStorage.getItem(planets) == undefined) {
     listPlanets.value = (await API.apiGetPlanets("")).data;
-    while ((listPlanets.value).next!=null){
-        const urlNextPage = ((listPlanets.value).next).substr(30);
-        newListPlanets.value = (await API.apiGetPlanets(urlNextPage)).data;
-        newListPlanets.value.results.forEach((planet)=> listPlanets.value.results.push(planet))
-        listPlanets.value.next = newListPlanets.value.next;
+    while (listPlanets.value.next != null) {
+      const urlNextPage = listPlanets.value.next.substr(30);
+      newListPlanets.value = (await API.apiGetPlanets(urlNextPage)).data;
+      newListPlanets.value.results.forEach((planet) =>
+        listPlanets.value.results.push(planet)
+      );
+      listPlanets.value.next = newListPlanets.value.next;
     }
     listPlanets.value = listPlanets.value.results;
+    sessionStorage.setItem(planets, JSON.stringify(listPlanets.value));
     console.log(listPlanets.value);
+  } else {
+    listPlanets.value = JSON.parse(sessionStorage.getItem(planets));
+  }
 }
-async function StarshipsList(){
+async function StarshipsList() {
+  const starships = "starships";
+  if (sessionStorage.getItem(starships) == undefined) {
     listStarships.value = (await API.apiGetStarships("")).data;
-    while ((listStarships.value).next!=null){
-        const urlNextPage = ((listStarships.value).next).substr(32);
-        newListStarships.value = (await API.apiGetStarships(urlNextPage)).data;
-        newListStarships.value.results.forEach((starship)=> listStarships.value.results.push(starship))
-        listStarships.value.next = newListStarships.value.next;
+    while (listStarships.value.next != null) {
+      const urlNextPage = listStarships.value.next.substr(32);
+      newListStarships.value = (await API.apiGetStarships(urlNextPage)).data;
+      newListStarships.value.results.forEach((starship) =>
+        listStarships.value.results.push(starship)
+      );
+      listStarships.value.next = newListStarships.value.next;
     }
     listStarships.value = listStarships.value.results;
-    console.log(listStarships.value);
+    sessionStorage.setItem(starships, JSON.stringify(listStarships.value));
+  } else {
+    listStarships.value = JSON.parse(sessionStorage.getItem(starships));
+  }
+
+  console.log(listStarships.value);
 }
-async function VehiclesList(){
+async function VehiclesList() {
+  const vehicles = "vehicles";
+  if (sessionStorage.getItem(vehicles) == undefined) {
     listVehicles.value = (await API.apiGetVehicles("")).data;
-    while ((listVehicles.value).next!=null){
-        const urlNextPage = ((listVehicles.value).next).substr(30);
-        newListVehicles.value = (await API.apiGetVehicles(urlNextPage)).data;
-        newListVehicles.value.results.forEach((vehicle)=> listVehicles.value.results.push(vehicle))
-        listVehicles.value.next = newListVehicles.value.next;
+    while (listVehicles.value.next != null) {
+      const urlNextPage = listVehicles.value.next.substr(30);
+      newListVehicles.value = (await API.apiGetVehicles(urlNextPage)).data;
+      newListVehicles.value.results.forEach((vehicle) =>
+        listVehicles.value.results.push(vehicle)
+      );
+      listVehicles.value.next = newListVehicles.value.next;
     }
     listVehicles.value = listVehicles.value.results;
-    console.log(listVehicles.value);
+    sessionStorage.setItem(vehicles, JSON.stringify(listVehicles.value));
+  } else {
+    listVehicles.value = JSON.parse(sessionStorage.getItem(vehicles));
+  }
+
+  console.log(listVehicles.value);
 }
-async function PeopleList(){
-    console.log("list");
+async function PeopleList() {
+  const people = "people";
+  if (sessionStorage.getItem(people) == undefined) {
     listPeople.value = (await API.apiGetPeople("")).data;
-    while ((listPeople.value).next!=null){
-        const urlNextPage = ((listPeople.value).next).substr(29);
-        newListPeople.value = (await API.apiGetPeople(urlNextPage)).data;
-        newListPeople.value.results.forEach((people)=> listPeople.value.results.push(people))
-        listPeople.value.next = newListPeople.value.next;
+    while (listPeople.value.next != null) {
+      const urlNextPage = listPeople.value.next.substr(29);
+      newListPeople.value = (await API.apiGetPeople(urlNextPage)).data;
+      newListPeople.value.results.forEach((people) =>
+        listPeople.value.results.push(people)
+      );
+      listPeople.value.next = newListPeople.value.next;
     }
     listPeople.value = listPeople.value.results;
-    console.log(listPeople.value);
+    sessionStorage.setItem(people, JSON.stringify(listPeople.value));
+  } else {
+    listPeople.value = JSON.parse(sessionStorage.getItem(people));
+  }
+
+  console.log(listPeople.value);
 }
-async function FilmsList(){
+async function FilmsList() {
+  const films = "films";
+  if (sessionStorage.getItem(films) == undefined) {
     listFilms.value = (await API.apiGetFilms("")).data.results;
-    console.log(listFilms.value);
+    sessionStorage.setItem(films, JSON.stringify(listFilms.value));
+  } else {
+    listFilms.value = JSON.parse(sessionStorage.getItem(films));
+  }
+  console.log(listFilms.value);
 }
-async function SpeciesList(){
+async function SpeciesList() {
+  const species = "species";
+  if (sessionStorage.getItem(species) == undefined) {
     listSpecies.value = (await API.apiGetSpecies("")).data;
-    while ((listSpecies.value).next!=null){
-        const urlNextPage = ((listSpecies.value).next).substr(30);
-        newListSpecies.value = (await API.apiGetSpecies(urlNextPage)).data;
-        newListSpecies.value.results.forEach((specie)=> listSpecies.value.results.push(specie))
-        listSpecies.value.next = newListSpecies.value.next;
+    while (listSpecies.value.next != null) {
+      const urlNextPage = listSpecies.value.next.substr(30);
+      newListSpecies.value = (await API.apiGetSpecies(urlNextPage)).data;
+      newListSpecies.value.results.forEach((specie) =>
+        listSpecies.value.results.push(specie)
+      );
+      listSpecies.value.next = newListSpecies.value.next;
     }
     listSpecies.value = listSpecies.value.results;
-    console.log(listSpecies.value);
+    sessionStorage.setItem(species, JSON.stringify(listSpecies.value));
+  } else {
+    listSpecies.value = JSON.parse(sessionStorage.getItem(species));
+  }
+  console.log(listSpecies.value);
 }
 
 async function IsClicked(name){
@@ -106,12 +154,6 @@ async function CategorySelect(category) {
 
 <template>
       
-
-<nav>
-    <button class="home"><a href="https://starwars-visualguide.com/#/">Home</a></button>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" />
-    <button class="quisuisje"><a href="https://kennethscoggins.medium.com/how-to-use-the-star-wars-api-in-about-50-lines-of-php-b78b39e9eb8e">Qui suis-je ?</a></button>
-</nav>
     <div id="category">
         
 
