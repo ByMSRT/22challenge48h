@@ -6,6 +6,6 @@ $commands = 'git pull';
 
 $git = shell_exec("$commands");
 
-echo 'Test pull2'
+echo 'Test pull2';
 
 ?>
