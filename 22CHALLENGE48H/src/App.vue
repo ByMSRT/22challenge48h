@@ -11,7 +11,7 @@ import Wiki from './components/Wiki.vue'
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <!--<img alt="Vue logo" src="./assets/logo.png" />-->
-  <wiki></wiki>  
+    <Wiki></Wiki>
   </body>
 </template>
 
