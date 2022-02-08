@@ -16,6 +16,7 @@ const newListSpecies = ref([]);
 const nameClicked = ref("");
 const clicked = ref(false);
 const categorySelect = ref("");
+const categoryClicked = ref(true);
 
 async function PlanetsList(){
     listPlanets.value = (await API.apiGetPlanets("")).data;
@@ -51,6 +52,7 @@ async function VehiclesList(){
     console.log(listVehicles.value);
 }
 async function PeopleList(){
+    console.log("list");
     listPeople.value = (await API.apiGetPeople("")).data;
     while ((listPeople.value).next!=null){
         const urlNextPage = ((listPeople.value).next).substr(29);
@@ -89,7 +91,14 @@ async function IsClicked(name){
     return await clicked;
 }
 
-async function CategorySelect() {
+async function CategorySelect(category) {
+    if(categoryClicked.value == true){
+        categoryClicked.value = false;
+    } else {
+        categoryClicked.value = true;
+    }
+    categorySelect.value = category;
+    console.log(categorySelect.value);
 
 }
 
@@ -106,62 +115,81 @@ async function CategorySelect() {
     <div id="category">
         
 
-        <section>
-            <article class="categoryimage" v-on:click="PeopleList"><h1 class="texte">Personnages</h1>
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Personnages"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" v-on:click='PeopleList(); CategorySelect("Personnages")'><h1 class="texte">Personnages</h1>
                 <img class="flou" src="https://img.filmsactu.net/datas/films/s/t/star-wars-episode-ix/xl/star-wars-episode-ix-5fc36a969d8ba.jpg" />
             </article>
             <article id="cart">
-                <article class="cart" v-for="(people, index) of listPeople" :key="index" v-on:click="IsClicked(people.name)"> {{people.name}}
-                    <article v-if="clicked == true && nameClicked == people.name">He is {{people.height}}cm tall and weighs {{people.mass}}Kg. He is {{people.hair_color}} with {{people.eye_color}} eyes and has a {{people.skin_color}} skin.</article>
+                <article class="cart" v-for="(people, index) of listPeople" :key="index" v-on:click="IsClicked(people.name)"> <h4>{{people.name}}</h4>
+                    <article v-if="clicked == true && nameClicked == people.name">
+                        Gender : {{people.gender}} <br> Birth Year : {{people.birth_year}} <br>
+                        Height : {{people.height}} <br> Mass : {{people.mass}} <br>
+                        Hair : {{people.hair_color}} <br> Skin color : {{people.skin_color}} <br>
+                        Eyes : {{people.eye_color}} <br> Homeworld : {{people.homeworld}} <br>
+                        Species : {{people.species}} <br> Starships : {{people.starships}} <br>
+                        Created on {{((people.created).split('T'))[0]}} <br> Edited on {{((people.edited).split('T'))[0]}} <br>
+                        Movies : {{people.films}}
+                    </article>
                 </article>
             </article>   
         </section>
 
 
-
-
-        <section>
-            <article class="categoryimage"><h1 class="texte">Planètes</h1>
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Planetes"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" name="Planetes" v-on:click='PlanetsList(); CategorySelect("Planetes")'><h1 class="texte">Planètes</h1>
                 <img class="flou" src="http://idata.over-blog.com/1/32/60/44/Starwars/PLANETES/TATOOINE/Tatooine-3.jpg" />
             </article>
-            <article v-for="(planet, index) of listPlanets" :key="index" v-on:click="IsClicked(planet.name)"> {{planet.name}}
-                <article v-if="clicked == true && nameClicked == planet.name">test</article>
+            <article id="cart">
+                <article class="cart" v-for="(planet, index) of listPlanets" :key="index" v-on:click="IsClicked(planet.name)"> {{planet.name}}
+                    <article v-if="clicked == true && nameClicked == planet.name">test</article>
+                </article>
             </article>
         </section>
-        <section>
-            <article class="categoryimage"><h1 class="texte">Véhicules</h1>
+
+
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Vehicules"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" name="Vehicules" v-on:click='VehiclesList(); CategorySelect("Vehicules")'><h1 class="texte">Véhicules</h1>
                 <img class="flou" src="https://i.pinimg.com/originals/5c/74/bd/5c74bdb7e78643598a20c01da29ab667.jpg" />
             </article>
-
-            <article v-for="(vehicle, index) of listVehicles" :key="index" v-on:click="IsClicked(vehicle.name)"> {{vehicle.name}}
-                <article v-if="clicked == true && nameClicked == vehicle.name">retest</article>
+            <article id="cart">
+                <article class="cart" v-for="(vehicle, index) of listVehicles" :key="index" v-on:click="IsClicked(vehicle.name)"> {{vehicle.name}}
+                    <article v-if="clicked == true && nameClicked == vehicle.name">retest</article>
+                </article>
             </article>
         </section>
 
         
-        <section>
-            <article class="categoryimage"><h1 class="texte">Films</h1>
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Films"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" name="Films" v-on:click='FilmsList(); CategorySelect("Films")'><h1 class="texte">Films</h1>
                 <img class="flou" src="https://www.numerama.com/wp-content/uploads/2019/02/star-wars-posters.jpg" />
             </article>
-            <article v-for="(film, index) of listFilms" :key="index" v-on:click="IsClicked(film.name)"> {{film.title}}
-                <article v-if="clicked == true && nameClicked == film.name">sheesh</article>
+            <article id="cart">
+                <article class="cart" v-for="(film, index) of listFilms" :key="index" v-on:click="IsClicked(film.name)"> {{film.title}}
+                    <article v-if="clicked == true && nameClicked == film.name">sheesh</article>
+                </article>
             </article>
         </section>
 
-        <section>
-            <article class="categoryimage"><h1 class="texte">Starships</h1>
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Starships"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" name="Starships" v-on:click='StarshipsList(); CategorySelect("Starships")'><h1 class="texte">Starships</h1>
                 <img class="flou" src="https://i.pinimg.com/originals/0f/ac/a7/0faca7171ba07543eaa081b6b8c13639.jpg" />
             </article>
-            <article v-for="(starship, index) of listStarships" :key="index" v-on:click="IsClicked(starship.name)"> {{starship.name}}
-                <article v-if="clicked == true && nameClicked == starship.name">yo</article> 
+            <article id="cart">
+                <article class="cart" v-for="(starship, index) of listStarships" :key="index" v-on:click="IsClicked(starship.name)"> {{starship.name}}
+                    <article v-if="clicked == true && nameClicked == starship.name">yo</article> 
+                </article>
             </article>
         </section>
-        <section>
-            <article class="categoryimage"><h1 class="texte">Species</h1>
+
+
+        <section v-bind:class="{section: categoryClicked}" v-if='categoryClicked == true || categoryClicked == false && categorySelect == "Species"'>
+            <article v-bind:class="{categoryimage: !categoryClicked}" name="Species" v-on:click='SpeciesList(); CategorySelect("Species")'><h1 class="texte">Species</h1>
                 <img class="flou" src="https://static.hitek.fr/img/actualite/2016/06/07/w_sullustens.jpg" />
             </article>
-            <article v-for="(specie, index) of listSpecies" :key="index" v-on:click="IsClicked(specie.name)"> {{specie.name}}
-                <article v-if="clicked == true && nameClicked == specie.name">le boss</article>
+            <article id="cart">
+                <article class="cart" v-for="(specie, index) of listSpecies" :key="index" v-on:click="IsClicked(specie.name)"> {{specie.name}}
+                    <article v-if="clicked == true && nameClicked == specie.name">le boss</article>
+                </article>
             </article>
         </section>
 
@@ -188,7 +216,12 @@ nav {
     justify-content: space-between;
 }
 
-section {
+.categoryimage {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.section {
     width: 33%;
 }
 
@@ -243,7 +276,6 @@ button:hover {
 img {
     width: 350px;
     height: auto;
-    position: relative;
 }
 
 .flou {

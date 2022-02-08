@@ -1,7 +1,7 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/QuiSuisJe.vue'
+import Wiki from './components/Wiki.vue'
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import HelloWorld from './components/QuiSuisJe.vue'
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <!--<img alt="Vue logo" src="./assets/logo.png" />-->
-    <HelloWorld msg="Hello Vue 3 + Vite" />
+    <Wiki></Wiki>
   </body>
 </template>
 
