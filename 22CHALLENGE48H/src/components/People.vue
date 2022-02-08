@@ -5,6 +5,7 @@ import {ref} from 'vue';
 const listPeoples = ref([]);
 const person = ref([]);
 const clicked = ref(false);
+const peoplename = ref("");
 
 async function callPeople(){
     console.log('callapi')
@@ -12,8 +13,13 @@ async function callPeople(){
     console.log(listPeoples.value)
 }
 
-async function IsClicked(){
-    clicked.value = true;
+async function IsClicked(name){
+    if(peoplename.value == name){
+        clicked.value = false;
+    } else {
+        clicked.value = true;
+        peoplename.value = name;
+    }
     console.log(clicked);
     return await clicked;
 }
@@ -25,8 +31,8 @@ async function IsClicked(){
     <input type="submit" name="submit" value="peoples" v-on:click="callPeople">
     <div>
         <section v-for="(people, index) of listPeoples" :key="index" id="card">
-            <article v-on:click="IsClicked" class="PeopleName">{{people.name}}</article>
-            <article v-if="clicked == true">{{people.species}}</article>
+            <article v-on:click="IsClicked(people.name)" class="PeopleName">{{people.name}}</article>
+            <article v-if="clicked == true && peoplename == people.name">{{people.species}}</article>
         </section>
     </div>
 
