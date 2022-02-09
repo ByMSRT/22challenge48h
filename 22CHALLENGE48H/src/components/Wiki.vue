@@ -25,7 +25,9 @@ async function PlanetsList(){
             listPlanets.value.next = newListPlanets.value.next;
         }
         listPlanets.value = listPlanets.value.results;
+        
         sessionStorage.setItem(planets, JSON.stringify(listPlanets.value));
+
         console.log(listPlanets.value);
     }
     else{
