@@ -11,8 +11,12 @@ import Header from './components/Header.vue';
 </template>
 
 <style>
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap") forma(OTF);
+}
 body {
-  background-image: url(https://ak.picdn.net/shutterstock/videos/1021959073/thumb/1.jpg?ip=x480);
+  background-image: url("https://ak.picdn.net/shutterstock/videos/1021959073/thumb/1.jpg?ip=x480");
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

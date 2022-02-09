@@ -2,12 +2,14 @@
 import API from '../api/route.js';
 import {ref} from 'vue';
 
+
 const species = 'species';
 const films = 'films';
 const people = 'people';
 const vehicles = 'vehicles';
 const starships = 'starships';
 const planets = 'planets';
+
 const listPlanets= ref([]);
 const newListPlanets = ref([]);
 const listStarships= ref([]);
@@ -156,12 +158,15 @@ function randomCategory(){
         case 5:
             randomSecret(listSpecies);
             film = false;
+
             break;
         default:
         console.log("erreur");
     }
     
 }
+
+
 function compare(who){
     let result= document.getElementsByName("answer");
     if(result.value == who){
@@ -169,12 +174,14 @@ function compare(who){
     }else{
         window.alert('you loose, try again')
     }
+
 }
 </script>
 
 <template>
     <input type="submit" name="submit" value="JOUER" v-on:click="randomCategory">
     <h1 class="motAleatory">
+
     </h1>
     <!-- Question -->
     <form>
@@ -259,4 +266,5 @@ fieldset {
 	align-items: center;
 	align-content: space-around;
 }
+
 </style>
