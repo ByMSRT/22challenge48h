@@ -135,5 +135,8 @@ button:hover {
     height: 200px;
     width: auto;
 }
+h1{
+    font-size: 15px;
+}
 }
 </style>
