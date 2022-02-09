@@ -149,7 +149,6 @@ async function CategorySelect(category) {
     console.log(categorySelect.value);
 
 }
-
 </script>
 
 <template>
@@ -176,7 +175,7 @@ async function CategorySelect(category) {
                 <img class="flou" src="http://idata.over-blog.com/1/32/60/44/Starwars/PLANETES/TATOOINE/Tatooine-3.jpg" />
             </article>
             <article id="cart">
-                <article v-if="!categoryClicked" class="cart" v-for="(planet, index) of listPlanets" :key="index" v-on:click="IsClicked(planet.name)"> {{planet.name}}
+                <article v-if="!categoryClicked" class="cart" v-for="(planet, index) of listPlanets" :key="index" v-on:click="IsClicked(planet.name)"> <h4>{{planet.name}}</h4>
                     <article v-if="clicked == true && nameClicked == planet.name" v-for="(value, key) of planet">
                         {{key + " : " + value}}<br>
                     </article>
@@ -190,7 +189,7 @@ async function CategorySelect(category) {
                 <img class="flou" src="https://i.pinimg.com/originals/5c/74/bd/5c74bdb7e78643598a20c01da29ab667.jpg" />
             </article>
             <article id="cart">
-                <article v-if="!categoryClicked" class="cart" v-for="(vehicle, index) of listVehicles" :key="index" v-on:click="IsClicked(vehicle.name)"> {{vehicle.name}}
+                <article v-if="!categoryClicked" class="cart" v-for="(vehicle, index) of listVehicles" :key="index" v-on:click="IsClicked(vehicle.name)"> <h4>{{vehicle.name}}</h4>
                     <article v-if="clicked == true && nameClicked == vehicle.name" v-for="(value, key) of vehicle">
                         {{key + " : " + value}}<br>
                     </article>
@@ -204,7 +203,7 @@ async function CategorySelect(category) {
                 <img class="flou" src="https://www.numerama.com/wp-content/uploads/2019/02/star-wars-posters.jpg" />
             </article>
             <article id="cart">
-                <article v-if="!categoryClicked" class="cart" v-for="(film, index) of listFilms" :key="index" v-on:click="IsClicked(film.name)"> {{film.title}}
+                <article v-if="!categoryClicked" class="cart" v-for="(film, index) of listFilms" :key="index" v-on:click="IsClicked(film.name)"> <h4>{{film.title}}</h4>
                     <article v-if="clicked == true && nameClicked == film.name" v-for="(value, key) of film">
                         {{key + " : " + value}}<br>
                     </article>
@@ -217,7 +216,7 @@ async function CategorySelect(category) {
                 <img class="flou" src="https://i.pinimg.com/originals/0f/ac/a7/0faca7171ba07543eaa081b6b8c13639.jpg" />
             </article>
             <article id="cart">
-                <article v-if="!categoryClicked" class="cart" v-for="(starship, index) of listStarships" :key="index" v-on:click="IsClicked(starship.name)"> {{starship.name}}
+                <article v-if="!categoryClicked" class="cart" v-for="(starship, index) of listStarships" :key="index" v-on:click="IsClicked(starship.name)"> <h4>{{starship.name}}</h4>
                     <article v-if="clicked == true && nameClicked == starship.name" v-for="(value, key) of starship">
                         {{key + " : " + value}}<br>
                     </article> 
@@ -231,7 +230,7 @@ async function CategorySelect(category) {
                 <img class="flou" src="https://static.hitek.fr/img/actualite/2016/06/07/w_sullustens.jpg" />
             </article>
             <article id="cart">
-                <article v-if="!categoryClicked" class="cart" v-for="(specie, index) of listSpecies" :key="index" v-on:click="IsClicked(specie.name)"> {{specie.name}}
+                <article v-if="!categoryClicked" class="cart" v-for="(specie, index) of listSpecies" :key="index" v-on:click="IsClicked(specie.name)"> <h4>{{specie.name}}</h4>
                     <article v-if="clicked == true && nameClicked == specie.name" v-for="(value, key) of specie">
                         {{key + " : " + value}}<br>
                     </article>
@@ -273,11 +272,13 @@ nav {
 
 
 .cart {
-    background-color: white;
-    border: 8px solid yellow;
-    margin-bottom: 10px;
-    width: 10%;
-
+    background-color: black;
+    border: 3px solid grey;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-right: 20px;
+    width: 20%;
+    color: yellow;
 }
 
 #cart {
@@ -347,5 +348,11 @@ p {
     src:url("Starjout.eot?") format("eot"),url("Starjout.woff") format("woff"),url("Starjout.ttf") format("truetype"),url("Starjout.svg#StarJediOutline") format("svg");
     font-weight:normal;
     font-style:normal;}
-
+@media screen and (min-width: 0px) and (max-width: 520px){
+    #cart {
+        display: flex;
+        flex-direction:column;
+        align-items:center;
+    }
+}
 </style>
