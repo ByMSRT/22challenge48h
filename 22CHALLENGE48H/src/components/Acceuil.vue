@@ -3,11 +3,6 @@
 </script>
 
 <template>
-<nav>
-    <button class="home"><a href="https://starwars-visualguide.com/#/">Home</a></button>
-    <img class ="bonneTaille" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/2560px-Star_Wars_Logo.svg.png" />
-    <button class="quisuisje"><a href="https://kennethscoggins.medium.com/how-to-use-the-star-wars-api-in-about-50-lines-of-php-b78b39e9eb8e">Qui suis-je ?</a></button>
-</nav>
 <div class="corps">
     <div class="presentationNous">
         <div class="description">
@@ -37,7 +32,7 @@
     </div>
     <div class="texteExpliquation">
         <h1>Nous vous présentons notre projet qui a pour but de creer un jeu ludique avec l'univers de star wars en utilisant une api (swapi). Ce projet est a été proposé dans le cadre d'un projet 48 h par l'école ynov 2022</h1>
-        <img src="https://static.lexpress.fr/medias_1632/w_1000,h_559,c_crop,x_0,y_0/w_1000,h_563,c_fill,g_north/v1556872960/chewbacca_835710.jpg"/>
+        <img class="bonneTaille" src="https://static.lexpress.fr/medias_1632/w_1000,h_559,c_crop,x_0,y_0/w_1000,h_563,c_fill,g_north/v1556872960/chewbacca_835710.jpg"/>
         </div>
 </div> 
 </template>
@@ -74,7 +69,7 @@ nav {
     margin-bottom: 100px;
 }
 .bonneTaille{
-    height: 350px;
+    height: 500px;
     width: auto;
 }
 .presentationNous{
@@ -112,5 +107,33 @@ button:hover {
     height: 200px;
     width: auto;
     margin : 2% 2% 2% 2%;
+}
+@media screen and (min-width: 0px) and (max-width: 1200px){
+    .corps{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: stretch;
+    }
+    .texteExpliquation{
+    border: 3px solid #ffe919;
+    color :white;
+    text-align:center;
+    }
+    .presentationNous{
+    grid-column: 1/2;
+    grid-row: 2 /4;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: stretch;
+    border: 3px solid #ffe919;
+}
+.bonneTaille{
+    height: 200px;
+    width: auto;
+}
 }
 </style>

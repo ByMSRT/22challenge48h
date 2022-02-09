@@ -1,7 +1,7 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import Wiki from './components/QuiSuisJe.vue'
+import Wiki from './components/Acceuil.vue'
 </script>
 
 <template>
